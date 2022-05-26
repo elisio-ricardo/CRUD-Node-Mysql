@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Formulario</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Formulario</h1>
+
+  <% if(filme.id){ %>
+    <form class="row g-3" method="post" action="/edit/<%= filme.id %>">
+      <%} else { %>
+        <form class="row g-3" method="post" action="/add">
+          <% } %>
+            <form class="row g-3" method="post" action="/add">
+
+              <div class="col-12">
+                <label for="inputAddress" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="titulo" name="titulo"
+                  placeholder="Informe o titulo do filme/serie" value="<%= filme.titulo %>">
+              </div>
+
+              <div class="col-md-2">
+                <label for="inputZip" class="form-label">Ano de Lançamento</label>
+                <input type="text" class="form-control" id="ano" name="ano" placeholder="2022"
+                  value="<%= filme.ano_lancamento%>">
+              </div>
+
+              </div>
+              <div class=" col-12">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+              </div>
+            </form>
+
+            <p><a href="/">Voltar para o inicio</a></p>
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+              integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+              crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+              integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+              crossorigin="anonymous"></script>
+</body>
+
+</html>
