@@ -32,11 +32,12 @@ router.get('/add', function (req, res) {
 //Rota para receber os dados do form de cadastro
 router.post('/add', function (req, res) {
   // res.status(200).send(req.body)//teste joga as informações na tela
-  db.query('insert into filmes_e_series(titulo, ano_lancamento) values(?, ?)', [req.body.titulo, req.body.ano],
+  db.query('call inserirFilmeOuSerie(?, ?)', [req.body.titulo, req.body.ano],
     function (erro) {//insert só trata o erro não tem resultado
       if (erro) {
         res.status(200).send('Erro: ' + erro)
       }
+      console.log("Funcionou a call")
       res.redirect('/listar') //se der certo volta para a tela listar
     })
 });
